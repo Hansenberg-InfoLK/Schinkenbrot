@@ -8,7 +8,7 @@ Das Spiel gehört den Genres _"Escape Room"_, _"Schnitzeljagd"_ und _"Geocaching
 
 Das Projekt ist in vier Teilprojekte gegliedert, was man auch an den vier verschiedenen **Branches** des Repositorys sehen kann:
 
-- Das erste Teilprojekt befasst sich mit dem Spiel selbst. Dabei soll hauptsächlich ein Escape-Room Spiel realisiert werden, das Aufgaben stellt, und für den Fortschritt im Spiel eine Lösung erfordert, die die unmittelbare Realität implementiert. Einige Anregungen für die Lösung der Aufgabe sind z.B. _QR-Codes, NFC-Chips, etc._, wobei auch die pben genannten Genres wie _"Schnitzeljagd"_ zustande kommen.
+- Das erste Teilprojekt befasst sich mit dem Spiel selbst. Dabei soll hauptsächlich ein Escape-Room Spiel realisiert werden, das Aufgaben stellt, und für den Fortschritt im Spiel eine Lösung erfordert, die die unmittelbare Realität implementiert. Einige Anregungen für die Lösung der Aufgabe sind z.B. _QR-Codes, NFC-Chips, etc._, wobei auch die oben genannten Genres wie _"Schnitzeljagd"_ zustande kommen.
 - Das zweite Teilprojekt beinhaltet den Editor. Dies soll einen Editor darstellen, der ein individuelles Design ermöglicht und fordert. Mit diesem Modul ist es dem Anwender möglich Level mit Aufgaben und entsprechenden Lösungen zu stellen, wobei auch die Arte der Lösung (wie oben schon vorgeschlagen) ausgewählt werden kann.
 - Das dritte Teilprojekt ist die Schnittstelle zwischen den zwei oben genannten Teilen. Dies beinhaltet Punkte wie _Datenbanken_, sowie Deployment Optionen wie _Google Play_.
 - Das letzte Teilprojekt ist im Branch _Preparation_ enthalten. Es stellt die Vorbereitung einer Spielesession dar. Dies könnte z.B. etwas sein wie **QR-Codes** ausdrucken, Zettel mit **Codes** verteilen, **NFC-Tags** beschreiben, etc. sein.
