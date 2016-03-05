@@ -15,4 +15,4 @@ Das Projekt ist in vier Teilprojekte gegliedert, was man auch an den vier versch
 
 ##### _Weiter wird hier nicht auf die einzelnen Teilprojekte eingegangen. Für detailliertere Optionen wird empfohlen sich den entsprechenden Wiki-Artikel anzusehen._ #####
 ---
-Dem aufmerksamen Beobachter wird aufgefallen sein, dass es noch einen fünften Zweig gibt, nämlich _Education_. Dieser Teil beinhaltet die Vorbereitung und Nachbereitung der Unterrichtsinhalte.
+Dem aufmerksamen Beobachter wird aufgefallen sein, dass es noch ein _weiteres Repo_ gibt, nämlich **Schinkenbrot_Edu**. Dieser Teil beinhaltet die Vorbereitung und Nachbereitung der Unterrichtsinhalte.
