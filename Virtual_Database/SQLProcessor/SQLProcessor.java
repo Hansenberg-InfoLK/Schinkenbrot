@@ -1,4 +1,4 @@
-package com.schinkenbrot.SQLProcessor;
+package SQLProcessor;
 
 /**
  * Created by David on 16.03.2016.

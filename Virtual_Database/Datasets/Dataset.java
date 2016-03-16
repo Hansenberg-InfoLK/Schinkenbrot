@@ -1,12 +1,10 @@
-package com.schinkenbrot.Datasets;
+package Datasets;
 
-import com.schinkenbrot.Interfaces.DatasetConnectable;
-
-import java.util.ArrayList;
+import Interfaces.Connectable.Dataset.DatasetConnectable;
 
 /**
  * Created by David on 16.03.2016.
  */
-public class Dataset implements DatasetConnectable
+public abstract class Dataset implements DatasetConnectable
 {
 }

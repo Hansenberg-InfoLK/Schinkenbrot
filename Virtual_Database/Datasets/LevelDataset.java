@@ -1,10 +1,11 @@
-package com.schinkenbrot.Datasets;
+package Datasets;
 
-import com.schinkenbrot.Interfaces.LevelDatasetConnectable;
+import Interfaces.Connectable.Dataset.LevelDatasetConnectable;
 
 /**
  * Created by David on 16.03.2016.
  */
 public class LevelDataset extends Dataset implements LevelDatasetConnectable
 {
+	//Fehlt hier nicht noch etwas?
 }

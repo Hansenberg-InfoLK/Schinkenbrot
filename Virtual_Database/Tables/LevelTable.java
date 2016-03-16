@@ -1,14 +1,14 @@
-package com.schinkenbrot.Tables;
+package Tables;
 
-import com.schinkenbrot.Datasets.EpisodenDataset;
-import com.schinkenbrot.Datasets.LevelDataset;
+import Datasets.LevelDataset;
+import Interfaces.Connectable.Table.LevelTableConnectable;
 
 import java.util.ArrayList;
 
 /**
  * Created by David on 16.03.2016.
  */
-public class LevelTable extends Table
+public class LevelTable extends Table implements LevelTableConnectable
 {
     public ArrayList<LevelDataset> datasets = new ArrayList<LevelDataset>();
 

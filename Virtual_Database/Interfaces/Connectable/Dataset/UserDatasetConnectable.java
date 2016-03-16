@@ -1,4 +1,4 @@
-package com.schinkenbrot.Interfaces;
+package Interfaces.Connectable.Dataset;
 
 /**
  * @author David Holland
@@ -6,10 +6,11 @@ package com.schinkenbrot.Interfaces;
  */
 public interface UserDatasetConnectable extends DatasetConnectable
 {
+    /* Redundant wegen extends
     int getID();
 
     void setName(String name);
-    String getName();
+    String getName();*/
 
     void setUsername(String username);
     String getUsername();

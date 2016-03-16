@@ -1,22 +1,25 @@
-package com.schinkenbrot.Interfaces;
+package Interfaces.Connectable.Dataset;
 
 /**
  * @author David Holland
  * Dieses Interface ist von jedem virtuellen Datensatz zu implementieren. So wird eine nachfolgende Funktionsumstellung gewährleistet
  */
-public interface LevelDatasetConnectable extends DatasetConnectable
+public interface EpisodenDatasetConnectable extends DatasetConnectable
 {
+    /* Redundant wegen extends
+    int getID();
+
     void setName(String name);
-    String getName();
+    String getName();*/
 
     void setDescription(String description);
     String getDescription();
 
-    void setAuthor(String author);
-    String getAuthor();
+    void setAuthor(int author);
+    int getAuthor();
 
-    void setType(String type);
-    String getType();
+    void setLevels(Integer[] levels);
+    Integer[] getLevels();
 
     void setResources(int[] resources);
     int[] getResources();

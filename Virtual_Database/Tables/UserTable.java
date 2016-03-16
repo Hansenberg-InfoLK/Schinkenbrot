@@ -1,32 +1,33 @@
-package com.schinkenbrot.Tables;
+package Tables;
 
-import com.schinkenbrot.Datasets.LevelDataset;
+import Datasets.UserDataset;
+import Interfaces.Connectable.Table.UserTableConnectable;
 
 import java.util.ArrayList;
 
 /**
  * Created by David on 16.03.2016.
  */
-public class UserTable extends Table
+public class UserTable extends Table implements UserTableConnectable
 {
-    public ArrayList<UserTable> datasets = new ArrayList<UserTable>();
+    public ArrayList<UserDataset> datasets = new ArrayList<UserDataset>();
 
-    public void add(UserTable dataset)
+    public void add(UserDataset dataset)
     {
         this.datasets.add(dataset);
     }
 
-    public void remove(UserTable dataset)
+    public void remove(UserDataset dataset)
     {
         this.datasets.remove(dataset);
     }
 
-    public void setDatasets(ArrayList<UserTable> datasets)
+    public void setDatasets(ArrayList<UserDataset> datasets)
     {
         this.datasets = datasets;
     }
 
-    public ArrayList<UserTable> getDatasets()
+    public ArrayList<UserDataset> getDatasets()
     {
         return datasets;
     }

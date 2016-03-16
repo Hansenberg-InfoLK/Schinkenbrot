@@ -1,4 +1,4 @@
-package com.schinkenbrot.Interfaces;
+package Interfaces.Connectable.Dataset;
 
 /**
  * Created by David on 16.03.2016.

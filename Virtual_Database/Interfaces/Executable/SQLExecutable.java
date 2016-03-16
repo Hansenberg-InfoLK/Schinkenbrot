@@ -1,6 +1,6 @@
-package com.schinkenbrot.Interfaces;
+package Interfaces.Executable;
 
-import com.schinkenbrot.Datasets.Dataset;
+import Datasets.Dataset;
 
 /**
  * Created by David on 16.03.2016.
