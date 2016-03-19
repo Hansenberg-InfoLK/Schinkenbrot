@@ -11,6 +11,8 @@ public interface EpisodenDatasetConnectable extends DatasetConnectable
 
     void setName(String name);
     String getName();*/
+	
+	EpisodenDatasetConnectable(int id);
 
     void setDescription(String description);
     String getDescription();

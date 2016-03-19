@@ -10,6 +10,8 @@ public interface LevelDatasetConnectable extends DatasetConnectable
     void setName(String name);
     String getName();*/
 
+	LevelDatasetConnectable(int ID);
+	
     void setDescription(String description);
     String getDescription();
 

@@ -12,6 +12,8 @@ public interface UserDatasetConnectable extends DatasetConnectable
     void setName(String name);
     String getName();*/
 
+	UserDatasetConnectable(int ID);
+	
     void setUsername(String username);
     String getUsername();
 

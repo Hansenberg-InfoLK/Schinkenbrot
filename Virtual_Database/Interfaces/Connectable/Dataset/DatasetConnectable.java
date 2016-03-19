@@ -5,6 +5,8 @@ package Interfaces.Connectable.Dataset;
  */
 public interface DatasetConnectable
 {
+	DatasetConnectable(int ID);
+	
     int getID();
 
     void setName(String name);
