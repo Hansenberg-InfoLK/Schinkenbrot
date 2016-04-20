@@ -12,14 +12,37 @@ public interface UserDatasetConnectable extends DatasetConnectable
     void setName(String name);
     String getName();*/
 
-	UserDatasetConnectable(int ID);
+	UserDatasetConnectable(int ID); //Konstruktor mit ID der Episode. KEIN AI.
 	
-    void setUsername(String username);
+    void setUsername(String username); //Benutzername
     String getUsername();
 
-    void setPassword(String password);
+    void setPassword(String password); //Password-Hash
     String getPassword();
 
-    void setXP(double xp);
+    void setEmail(String email); //E-Mail
+    String getEmail();
+    
+    void setBirthdate(String birthdate); //Geburtstag mit dem Format: tt.mm.jjjj
+    String getBirthdate();
+    
+    void setFirstname(String firstname); //Vorname
+    String getFirstname();
+    
+    void setLastname(String lastname); //Nachname
+    String getLastname();
+    
+    void setLanguage(int language); //Fremdschlüssel ID aus Sprachentabelle
+    int getLanguage();
+    
+    void setFriends(int[] friends); //Fremdschlüssel-Array ID aus UserTabelle
+    int[] getFriends();
+    
+    void setLastlogin(String lastlogin); //Lastlogin
+    String getLastlogin();
+    
+    void setXP(double xp); //XP-Stand
     double getXP();
+    
+    
 }

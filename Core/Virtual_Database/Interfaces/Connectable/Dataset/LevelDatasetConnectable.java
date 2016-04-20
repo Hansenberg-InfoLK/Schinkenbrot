@@ -10,17 +10,20 @@ public interface LevelDatasetConnectable extends DatasetConnectable
     void setName(String name);
     String getName();*/
 
-	LevelDatasetConnectable(int ID);
+	LevelDatasetConnectable(int ID); //Konstruktor mit ID als Parameter. KEIN AI
 	
-    void setDescription(String description);
+    void setDescription(String description); //Beschreibung
     String getDescription();
 
-    void setAuthor(String author);
+    void setAuthor(String author); //Autor
     String getAuthor();
 
-    void setType(String type);
-    String getType();
+    void setType(int type); //Fremdschlüssel ID aus Type-Tabelle
+    int getType();
+    
+    void setActive(boolean isActive); //Wird die Episode gespielt?
+    boolean getActive();
 
-    void setResources(int[] resources);
-    int[] getResources();
+    void setResources(String[] resources); //Alle Ressourcen
+    String[] getResources();
 }

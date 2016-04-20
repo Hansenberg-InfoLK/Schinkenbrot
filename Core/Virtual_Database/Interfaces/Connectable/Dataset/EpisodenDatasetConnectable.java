@@ -12,17 +12,26 @@ public interface EpisodenDatasetConnectable extends DatasetConnectable
     void setName(String name);
     String getName();*/
 	
-	EpisodenDatasetConnectable(int id);
+	EpisodenDatasetConnectable(int id); //Konstruktor mit ID der Episode. KEIN AI.
 
-    void setDescription(String description);
+    void setDescription(String description); //Beschreibung
     String getDescription();
 
-    void setAuthor(int author);
+    void setAuthor(int author); //Fremdschlüssel ID von der User-Tabelle
     int getAuthor();
 
-    void setLevels(Integer[] levels);
+    void setLevels(Integer[] levels); //Fremdschlüssel ID von der Level-Tabelle
     Integer[] getLevels();
 
-    void setResources(int[] resources);
-    int[] getResources();
+    void setType(int type); //Fremdschlüssel ID aus Type-Tabelle
+    int getType();
+    
+    void setActive(boolean isActive); //Wird die Episode gespielt?
+    boolean getActive();
+    
+    void setPublic(boolean isPublic); //Ist die episode öffentlich?
+    boolean getPublic();
+    
+    void setResources(String[] resources); //Alle Ressourcen
+    String[] getResources();
 }
