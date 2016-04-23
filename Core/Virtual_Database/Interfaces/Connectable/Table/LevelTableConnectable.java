@@ -2,20 +2,20 @@ package Interfaces.Connectable.Table;
 
 import Datasets.LevelDataset;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by David on 16.03.2016.
  */
 public interface LevelTableConnectable
 {
-	public ArrayList<LevelDataset> datasets = new ArrayList<LevelDataset>();
+	public HashMap<Integer, LevelDataset> datasets = new HashMap<Integer, LevelDataset>();
 
 	public void add(LevelDataset dataset);
 
 	public void remove(LevelDataset dataset);
 
-	public void setDatasets(ArrayList<LevelDataset> datasets);
+	public void setDatasets( HashMap<Integer, LevelDataset> datasets);
 
-	public ArrayList<LevelDataset> getDatasets();
+	public  HashMap<Integer, LevelDataset> getDatasets();
 }

@@ -2,20 +2,20 @@ package Interfaces.Connectable.Table;
 
 import Datasets.UserDataset;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by David on 16.03.2016.
  */
 public interface UserTableConnectable
 {
-	public ArrayList<UserDataset> datasets = new ArrayList<UserDataset>();
+	public HashMap<UserDataset> datasets = new HashMap<UserDataset>();
 
 	public void add(UserDataset dataset);
 
 	public void remove(UserDataset dataset);
 
-	public void setDatasets(ArrayList<UserDataset> datasets);
+	public void setDatasets(HashMap<UserDataset> datasets);
 
-	public ArrayList<UserDataset> getDatasets();
+	public HashMap<UserDataset> getDatasets();
 }
