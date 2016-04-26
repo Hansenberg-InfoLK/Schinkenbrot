@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class EpisodeTable extends Table implements EpisodenTableConnectable
 {
-	public HashMap<EpisodeDataset> datasets = new HashMap<EpisodeDataset>();
+	public HashMap<Integer, EpisodeDataset> datasets = new HashMap< Integer, EpisodeDataset>();
 
 	public void add(EpisodeDataset dataset)
 	{
@@ -27,7 +27,7 @@ public class EpisodeTable extends Table implements EpisodenTableConnectable
 		this.datasets = datasets;
 	}
 
-	public ArrayList<EpisodeDataset> getDatasets()
+	public HashMap<Integer, EpisodeDataset> getDatasets()
 	{
 		return datasets;
 	}

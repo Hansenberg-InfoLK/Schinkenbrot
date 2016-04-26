@@ -9,13 +9,13 @@ import java.util.*;
  */
 public interface UserTableConnectable
 {
-	public HashMap<UserDataset> datasets = new HashMap<UserDataset>();
+	public HashMap<Integer, UserDataset> datasets = new HashMap<Integer, UserDataset>();
 
 	public void add(UserDataset dataset);
 
 	public void remove(UserDataset dataset);
 
-	public void setDatasets(HashMap<UserDataset> datasets);
+	public void setDatasets(HashMap<Integer, UserDataset> datasets);
 
-	public HashMap<UserDataset> getDatasets();
+	public HashMap<Integer, UserDataset> getDatasets();
 }
