@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class UserTable extends Table implements UserTableConnectable
 {
-    public ArrayList<UserDataset> datasets = new ArrayList<UserDataset>();
+    public HashMap<UserDataset> datasets = new HashMap<UserDataset>();
 
     public void add(UserDataset dataset)
     {

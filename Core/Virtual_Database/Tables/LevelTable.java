@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class LevelTable extends Table implements LevelTableConnectable
 {
-    public ArrayList<LevelDataset> datasets = new ArrayList<LevelDataset>();
+    public HashMap<LevelDataset> datasets = new HashMap<LevelDataset>();
 
     public void add(LevelDataset dataset)
     {
