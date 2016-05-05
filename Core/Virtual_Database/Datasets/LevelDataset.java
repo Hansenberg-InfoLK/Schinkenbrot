@@ -7,20 +7,51 @@ import Interfaces.Connectable.Dataset.LevelDatasetConnectable;
  */
 public class LevelDataset extends Dataset implements LevelDatasetConnectable
 {
-	public LevelDatasetConnectable(int ID){} //Konstruktor mit ID als Parameter. KEIN AI
+	int ID;
+	String description;
+	int author;
+	int type;
+	String [] resources;
 	
-	public void setDescription(String description){} //Beschreibung
-	public String getDescription(){}
+	public LevelDatasetConnectable(int ID){
+		this.ID = ID;
+	} //Konstruktor mit ID als Parameter. KEIN AI
+	public int getID (){
+		return this.ID;
+	}
+	
+	public void setDescription(String description){
+		this.description = description;
+	} //Beschreibung
+	public String getDescription(){
+		return this.description;
+	}
 
-	public void setAuthor(String author){} //Autor
-	public String getAuthor(){}
+	public void setAuthor(String author){
+		this.author = author;
+	} //Autor
+	public String getAuthor(){
+		return this.author;
+	}
 
-	public void setType(int type){} //Fremdschlüssel ID aus Type-Tabelle
-	public int getType(){}
+	public void setType(int type){
+		this.type = type;
+	} //Fremdschlüssel ID aus Type-Tabelle
+	public int getType(){
+		return this.type;
+	}
     
-	public void setActive(boolean isActive){} //Wird die Episode gespielt?
-	public boolean getActive(){}
+	public void setActive(boolean isActive){
+		this.isActive = isActive;
+	} //Wird die Episode gespielt?
+	public boolean getActive(){
+		return this.isActive;
+	}
 
-	public void setResources(String[] resources){} //Alle Ressourcen
-	public String[] getResources(){}
+	public void setResources(String[] resources){
+		this.resources = resources;
+	} //Alle Ressourcen
+	public String[] getResources(){
+		return this.resources;
+	}
 }

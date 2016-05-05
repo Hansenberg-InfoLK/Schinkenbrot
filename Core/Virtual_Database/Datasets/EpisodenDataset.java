@@ -7,26 +7,68 @@ import Interfaces.Connectable.Dataset.EpisodenDatasetConnectable;
  */
 public class EpisodeDataset extends Dataset implements EpisodenDatasetConnectable
 {
-	public EpisodenDatasetConnectable(int id){} //Konstruktor mit ID der Episode. KEIN AI.
+	int ID;
+	String description;
+	int author;
+	Integer[] levels;
+	int type;
+	boolean isActive;
+	boolean isPublic;
+	String [] resources;
+	
+	public EpisodenDatasetConnectable(int id){
+		this.ID = ID;
+	} //Konstruktor mit ID der Episode. KEIN AI.
+	public int getID(){
+		return this.ID;
+	}
 
-	public void setDescription(String description){} //Beschreibung
-	public String getDescription(){}
+	public void setDescription(String description){
+		this.description = description;
+	} //Beschreibung
+	public String getDescription(){
+		return this.description;
+	}
 
-	public void setAuthor(int author){} //Fremdschlüssel ID von der User-Tabelle
-	public int getAuthor(){}
+	public void setAuthor(int author){
+		this.author = author;
+	} //Fremdschlüssel ID von der User-Tabelle
+	public int getAuthor(){
+		return this.author;
+	}
 
-	public void setLevels(Integer[] levels){} //Fremdschlüssel ID von der Level-Tabelle
-	public Integer[] getLevels(){}
+	public void setLevels(Integer[] levels){
+		this.levels = levels;
+	} //Fremdschlüssel ID von der Level-Tabelle
+	public Integer[] getLevels(){
+		return this.levels;
+	}
 
-	public void setType(int type){} //Fremdschlüssel ID aus Type-Tabelle
-	public int getType(){}
+	public void setType(int type){
+		this.type = type;
+	} //Fremdschlüssel ID aus Type-Tabelle
+	public int getType(){
+		return this.type;
+	}
     
-	public void setActive(boolean isActive){} //Wird die Episode gespielt?
-	public boolean getActive(){}
+	public void setActive(boolean isActive){
+		this.isActive = isActive;
+	} //Wird die Episode gespielt?
+	public boolean getActive(){
+		return this.isActive;
+	}
     
-	public void setPublic(boolean isPublic){} //Ist die episode öffentlich?
-	public boolean getPublic(){}
+	public void setPublic(boolean isPublic){
+		this.isPublic = isPublic;
+	} //Ist die episode öffentlich?
+	public boolean getPublic(){
+		return this.isPublic;
+	}
     
-	public void setResources(String[] resources){} //Alle Ressourcen
-	public String[] getResources(){}
+	public void setResources(String[] resources){
+		this.resources = resources;
+	} //Alle Ressourcen
+	public String[] getResources(){
+		return this.resources;
+	}
 }
