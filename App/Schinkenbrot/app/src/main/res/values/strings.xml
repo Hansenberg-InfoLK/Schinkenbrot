@@ -105,4 +105,6 @@
     </string>
     <string name="title_activity_quest_editor">QuestEditorActivity</string>
     <string name="title_activity_host">HostActivity</string>
+    <string name="title_activity_editor1">Editor1Activity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

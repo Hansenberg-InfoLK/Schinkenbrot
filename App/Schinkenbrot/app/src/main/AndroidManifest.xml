@@ -58,6 +58,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.lirex.schinkenbrot.MainActivity" />
         </activity>
+        <activity
+            android:name=".Editor1Activity"
+            android:label="@string/title_activity_editor1"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.lirex.schinkenbrot.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
