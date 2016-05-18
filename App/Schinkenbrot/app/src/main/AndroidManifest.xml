@@ -67,6 +67,41 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.lirex.schinkenbrot.MainActivity" />
         </activity>
+        <activity
+            android:name=".EpisodeActivity"
+            android:label="@string/title_activity_episode"
+            android:parentActivityName=".GameActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.lirex.schinkenbrot.GameActivity" />
+        </activity>
+        <activity
+            android:name=".EpisodeChooserActivity"
+            android:label="@string/title_activity_episode_chooser"
+            android:parentActivityName=".GameActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.lirex.schinkenbrot.GameActivity" />
+        </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.lirex.schinkenbrot.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.lirex.schinkenbrot.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
