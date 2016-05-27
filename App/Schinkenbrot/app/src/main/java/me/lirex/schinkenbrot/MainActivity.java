@@ -1,5 +1,6 @@
 package me.lirex.schinkenbrot;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -67,6 +68,11 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
+        if (id == R.id.btnMAEditor){
+            Intent intent = new Intent(this, Editor1Activity.class);
+            startActivity(intent); //Wird der "Editor"-Button berührt, gelangt man in die EditorActivity
+        }
 
         /*if (id == R.id.nav_camera) {
             // Handle the camera action

@@ -1,5 +1,6 @@
 package me.lirex.schinkenbrot;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -115,7 +116,7 @@ public class Editor1Activity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_editor1, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            TextView textView = (TextView) rootView.findViewById(R.id.ction_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
@@ -158,4 +159,10 @@ public class Editor1Activity extends AppCompatActivity {
             //Hier werden die Namen der Tabs festgelegt.
         }
     }
+
+    public void goToEpisodeEditorActivity (View view){
+        Intent intent = new Intent(this, EpisodeEditorActivity.class);
+        startActivity(intent);
+    }
+
 }
