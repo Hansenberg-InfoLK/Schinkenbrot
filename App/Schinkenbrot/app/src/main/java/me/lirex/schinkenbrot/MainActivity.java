@@ -25,16 +25,19 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        assert drawer != null;
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -58,6 +61,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent (this, SettingsActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -67,12 +72,37 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Die Buttons in der Sidebar werden verlinkt
         int id = item.getItemId();
 
         if (id == R.id.nav_editor){
             Intent intent = new Intent(this, EditorActivity.class);
-            startActivity(intent); //Wird der "Editor"-Button berührt, gelangt man in die EditorActivity
+            startActivity(intent);
+        }
+
+        if (id == R.id.nav_home){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.nav_game){
+            Intent intent = new Intent(this, GameActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.nav_host){
+            Intent intent = new Intent (this, HostActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.nav_settings){
+            Intent intent = new Intent (this, SettingsActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.nav_profile){
+            Intent intent = new Intent (this, ProfileActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -89,6 +119,12 @@ public class MainActivity extends AppCompatActivity
     public void onEditorButtonPressed(View view)
     {
         Intent intent = new Intent(this, EditorActivity.class);
+        startActivity(intent);
+    }
+
+    public void onHostButtonPressed(View view)
+    {
+        Intent intent = new Intent(this, HostActivity.class);
         startActivity(intent);
     }
 }

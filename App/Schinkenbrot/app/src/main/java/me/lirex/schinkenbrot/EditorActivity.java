@@ -1,27 +1,19 @@
 package me.lirex.schinkenbrot;
 
-import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class EditorActivity extends AppCompatActivity {
@@ -35,12 +27,6 @@ public class EditorActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +39,18 @@ public class EditorActivity extends AppCompatActivity {
         // primary sections of the activity.
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(mViewPager);
 
-        mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        /*
+      The {@link ViewPager} that will host the section contents.
+     */
+        TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        assert mTabLayout != null;
         mTabLayout.setupWithViewPager(mViewPager);
+
     }
+
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -83,6 +75,8 @@ public class EditorActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent (this, SettingsActivity.class);
+            startActivity(intent);
             return true;
         }
 
