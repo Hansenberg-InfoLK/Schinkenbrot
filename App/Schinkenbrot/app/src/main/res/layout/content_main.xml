@@ -28,7 +28,8 @@
             android:text="@string/btnMAGame"
             android:id="@+id/btnMAGame"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.40"/>
+            android:layout_weight="0.40"
+            android:onClick="onGameButtonPressed"/>
 
         <Button
             android:layout_width="match_parent"
@@ -36,7 +37,8 @@
             android:text="@string/btnMAEditor"
             android:id="@+id/btnMAEditor"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.30"/>
+            android:layout_weight="0.30"
+            android:onClick="onEditorButtonPressed"/>
 
         <Button
             android:layout_width="match_parent"

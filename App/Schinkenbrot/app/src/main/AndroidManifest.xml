@@ -23,15 +23,6 @@
             android:label="@string/title_activity_game"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditorActivity"
-            android:label="@string/title_activity_editor"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.lirex.schinkenbrot.MainActivity" />
-        </activity>
-        <activity
             android:name=".EpisodeEditorActivity"
             android:label="@string/title_activity_episode_editor"
             android:parentActivityName=".EditorActivity"
@@ -59,7 +50,7 @@
                 android:value="me.lirex.schinkenbrot.MainActivity" />
         </activity>
         <activity
-            android:name=".Editor1Activity"
+            android:name=".EditorActivity"
             android:label="@string/title_activity_editor1"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
