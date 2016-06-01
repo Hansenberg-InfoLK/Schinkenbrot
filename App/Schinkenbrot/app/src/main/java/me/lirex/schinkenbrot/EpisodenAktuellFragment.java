@@ -27,7 +27,10 @@ public class EpisodenAktuellFragment extends Fragment
         lv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, content));
         return view;
 
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_episoden_aktuell_list, container, false);
+        /**
+         * Inflate the layout for this fragment
+         * return inflater.inflate(R.layout.fragment_episoden_aktuell_list, container, false);
+         */
+      
     }
 }

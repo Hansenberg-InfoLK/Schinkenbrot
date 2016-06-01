@@ -35,15 +35,18 @@ public class EditorActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        /**
+         * Create the adapter that will return a fragment for each of the three
+         * primary sections of the activity.
+         * Set up the ViewPager with the sections adapter.
+         */
+        
 
-        // Set up the ViewPager with the sections adapter.
         ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(mViewPager);
 
-        /*
-      The {@link ViewPager} that will host the section contents.
+        /**
+      *The {@link ViewPager} that will host the section contents.
      */
         TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
         assert mTabLayout != null;
@@ -61,19 +64,27 @@ public class EditorActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_editor, menu);
+        /**
+         *  Inflate the menu; this adds items to the action bar if it is present.
+         *   getMenuInflater().inflate(R.menu.menu_editor, menu);
+         */
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        /**
+         * Handle action bar item clicks here. The action bar will
+         * automatically handle clicks on the Home/Up button, so long
+         * as you specify a parent activity in AndroidManifest.xml.
+         */
+    	
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        /**
+         * noinspection SimplifiableIfStatement
+         */
+        
         if (id == R.id.action_settings) {
             Intent intent = new Intent (this, SettingsActivity.class);
             startActivity(intent);
