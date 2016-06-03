@@ -117,6 +117,11 @@ public class GameActivity extends AppCompatActivity
             startActivity(intent);
         }
 
+        if (id == R.id.nav_profile){
+            Intent intent = new Intent (this, ProfileActivity.class);
+            startActivity(intent);
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
