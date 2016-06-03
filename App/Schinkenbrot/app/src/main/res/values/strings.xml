@@ -171,4 +171,5 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="title_activity_editor2">Editor2Activity</string>
+    <string name="text_quest_editor">Willkommen im QuestEditor!</string>
 </resources>
