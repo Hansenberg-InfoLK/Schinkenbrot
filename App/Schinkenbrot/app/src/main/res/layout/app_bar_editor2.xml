@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".EditorActivity">
+    tools:context="me.lirex.schinkenbrot.Editor2Activity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -40,14 +40,16 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <!--<include layout="@layout/content_editor2"/>-->
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
+        android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_add_24"
-        android:onClick="goToEpisodeEditorActivity"
-        app:backgroundTint="@color/colorAccent"/>
+        app:backgroundTint="@color/colorAccent"
+        android:onClick="goToEpisodeEditorActivity"/>
 
 </android.support.design.widget.CoordinatorLayout>
