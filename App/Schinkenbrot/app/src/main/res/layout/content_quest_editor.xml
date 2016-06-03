@@ -17,7 +17,7 @@
             android:id="@+id/relative_quest1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:background="@drawable/abc_popup_background_mtrl_mult"
             android:nestedScrollingEnabled="true"
             android:layout_marginTop="5dp">
 
@@ -53,7 +53,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:background="@drawable/abc_popup_background_mtrl_mult"
             android:id="@+id/relative_quest2"
             android:layout_below="@+id/space_quest1">
 
@@ -68,6 +68,42 @@
                 android:layout_alignParentStart="false"
                 android:layout_alignParentEnd="false"
                 android:layout_alignParentTop="false"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tablelayout_questeditor_1"
+                android:layout_below="@+id/textView_quest3">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/abc_ab_share_pack_mtrl_alpha">
+
+                    <Switch
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Konfiguration 1"
+                        android:id="@+id/switch_questeditor_1"
+                        android:checked="false"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="15dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/abc_ab_share_pack_mtrl_alpha">
+
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Konfiguration 2"
+                        android:id="@+id/switch_questeditor_2"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="15dp" />
+                </TableRow>
+            </TableLayout>
 
 
         </RelativeLayout>
