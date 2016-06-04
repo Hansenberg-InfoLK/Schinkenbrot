@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_editor){
-            Intent intent = new Intent(this, Editor2Activity.class);
+            Intent intent = new Intent(this, EditorActivity.class);
             startActivity(intent);
         }
 
