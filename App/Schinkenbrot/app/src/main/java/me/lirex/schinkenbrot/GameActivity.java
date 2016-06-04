@@ -13,6 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GameActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +48,23 @@ public class GameActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        ListView gamelist = (ListView) findViewById(R.id.gamelist);
+        gamelist.setAdapter(null);
+        ArrayList<HashMap<String, String>> content = new ArrayList<HashMap<String, String>>();
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("Name", "Test");
+        map.put("XP", "2000");
+        map.put("Timer", "5");
+        content.add(map);
+        map.clear();
+        map.put("Name", "Test2");
+        map.put("XP", "5000");
+        map.put("Timer", "10");
+        content.add(map);
+        map.clear();
+        SimpleAdapter adapter = new SimpleAdapter(GameActivity.this, content, R.layout.content_game, new String[]{"Name", "XP", "Timer"}, new int[]{R.id.currentgame_name,R.id.currentgame_xp,R.id.currentgame_timer});
+
     }
 
     @Override

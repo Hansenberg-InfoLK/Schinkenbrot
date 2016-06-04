@@ -13,4 +13,11 @@
     tools:context="me.lirex.schinkenbrot.GameActivity"
     tools:showIn="@layout/app_bar_game">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gamelist"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true" />
 </RelativeLayout>
