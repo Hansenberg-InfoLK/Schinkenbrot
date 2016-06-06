@@ -62,9 +62,47 @@ public class GameActivity extends AppCompatActivity
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new EpisodenAktuellFragment(), "Aktiv");
-        adapter.addFragment(new EpisodenPublicFragment(), "Abgeschlossen");
+        adapter.addFragment(createListFragment("gaAk"), "Aktiv");
+        adapter.addFragment(createListFragment("gaAb"), "Abgeschlossen");
         viewPager.setAdapter(adapter);
+    }
+
+    private ListFragment createListFragment(String key)
+    {
+        ListFragment listFragment = new ListFragment();
+        Bundle args = new Bundle();
+        String[] listEntries;
+
+        switch (key)
+        {
+            case "gaAk":
+                listEntries = new String[2];
+
+                listEntries[0] = "test1";
+                listEntries[1] = "test2";
+
+                break;
+            case "gaAb":
+                listEntries = new String[3];
+
+                listEntries[0] = "test3";
+                listEntries[1] = "test4";
+                listEntries[2] = "test5";
+
+                break;
+            default:
+                listEntries = new String[1];
+
+                listEntries[0] = "Error #3";
+
+                break;
+        }
+
+        args.putStringArray("listEntries", listEntries);
+
+        listFragment.setArguments(args);
+
+        return listFragment;
     }
 
     @Override

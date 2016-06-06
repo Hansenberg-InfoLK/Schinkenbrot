@@ -62,9 +62,47 @@ public class EditorActivity extends AppCompatActivity
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new EpisodenAktuellFragment(), "Aktuell");
-        adapter.addFragment(new EpisodenPublicFragment(), "Veröffentlicht");
+        adapter.addFragment(createListFragment("edAk"), "Aktuell");
+        adapter.addFragment(createListFragment("edVe"), "Veröffentlicht");
         viewPager.setAdapter(adapter);
+    }
+
+    private ListFragment createListFragment(String key)
+    {
+        ListFragment listFragment = new ListFragment();
+        Bundle args = new Bundle();
+        String[] listEntries;
+
+        switch (key)
+        {
+            case "edAk":
+                listEntries = new String[2];
+
+                listEntries[0] = "test1";
+                listEntries[1] = "test2";
+
+                break;
+            case "edVe":
+                listEntries = new String[3];
+
+                listEntries[0] = "test3";
+                listEntries[1] = "test4";
+                listEntries[2] = "test5";
+
+                break;
+            default:
+                listEntries = new String[1];
+
+                listEntries[0] = "Error #3";
+
+                break;
+        }
+
+        args.putStringArray("listEntries", listEntries);
+
+        listFragment.setArguments(args);
+
+        return listFragment;
     }
 
     @Override
