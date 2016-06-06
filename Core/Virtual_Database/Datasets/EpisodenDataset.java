@@ -5,6 +5,9 @@ import Interfaces.Connectable.Dataset.EpisodenDatasetConnectable;
 /**
  * Created by David on 16.03.2016.
  */
+/** Klasse der Tabelle "Episoden" mit den zugehörigen Attributen; wird für das funktionieren der Datenbank benötigt (Einlesen und Ausgeben von Daten);
+ * Die Tabelle "Episoden" enthält die Daten der Episoden im Spiel, wobei diese aus Leveln bestehen und von Usern benutzt werden können/sollen;
+ */
 public class EpisodeDataset extends Dataset implements EpisodenDatasetConnectable
 {
 	int ID;
@@ -32,21 +35,21 @@ public class EpisodeDataset extends Dataset implements EpisodenDatasetConnectabl
 
 	public void setAuthor(int author){
 		this.author = author;
-	} //Fremdschl�ssel ID von der User-Tabelle
+	} //Fremdschlüssel ID von der User-Tabelle
 	public int getAuthor(){
 		return this.author;
 	}
 
 	public void setLevels(Integer[] levels){
 		this.levels = levels;
-	} //Fremdschl�ssel ID von der Level-Tabelle
+	} //Fremdschlüssel ID von der Level-Tabelle
 	public Integer[] getLevels(){
 		return this.levels;
 	}
 
 	public void setType(int type){
 		this.type = type;
-	} //Fremdschl�ssel ID aus Type-Tabelle
+	} //Fremdschlüssel ID aus Type-Tabelle
 	public int getType(){
 		return this.type;
 	}
@@ -60,7 +63,7 @@ public class EpisodeDataset extends Dataset implements EpisodenDatasetConnectabl
     
 	public void setPublic(boolean isPublic){
 		this.isPublic = isPublic;
-	} //Ist die episode �ffentlich?
+	} //Ist die episode öffentlich?
 	public boolean getPublic(){
 		return this.isPublic;
 	}
