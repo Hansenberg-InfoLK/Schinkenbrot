@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="me.lirex.schinkenbrot.QuestEditorActivity"
-    tools:showIn="@layout/activity_quest_editor">
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            xmlns:tools="http://schemas.android.com/tools"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                                            tools:context="me.lirex.schinkenbrot.QuestEditorActivity"
+                                            tools:showIn="@layout/activity_quest_editor"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +20,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/abc_popup_background_mtrl_mult"
             android:nestedScrollingEnabled="true"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="30dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -28,7 +29,8 @@
                 android:text="Beschreibung"
                 android:id="@+id/textView_quest2"
                 android:textColor="@color/abc_primary_text_material_light"
-                android:background="@android:drawable/divider_horizontal_textfield" />
+                android:background="@drawable/abc_ab_share_pack_mtrl_alpha"
+                android:padding="10dp"/>
 
             <EditText
                 android:layout_width="wrap_content"
@@ -37,7 +39,8 @@
                 android:layout_below="@+id/textView_quest2"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:text="Beschreibung..."/>
+                android:text="Beschreibung..."
+                android:padding="10dp"/>
 
 
         </RelativeLayout>
@@ -64,10 +67,11 @@
                 android:text="Konfiguration"
                 android:id="@+id/textView_quest3"
                 android:textColor="@color/abc_primary_text_material_light"
-                android:background="@android:drawable/divider_horizontal_textfield"
+                android:background="@drawable/abc_ab_share_pack_mtrl_alpha"
                 android:layout_alignParentStart="false"
                 android:layout_alignParentEnd="false"
-                android:layout_alignParentTop="false"/>
+                android:layout_alignParentTop="false"
+                android:padding="10dp"/>
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -78,7 +82,8 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/abc_ab_share_pack_mtrl_alpha">
+                    android:background="@drawable/abc_ab_share_pack_mtrl_alpha"
+                    android:padding="5dp">
 
                     <Switch
                         android:layout_width="match_parent"
@@ -93,7 +98,8 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/abc_ab_share_pack_mtrl_alpha">
+                    android:background="@drawable/abc_ab_share_pack_mtrl_alpha"
+                    android:padding="5dp">
 
                     <Switch
                         android:layout_width="wrap_content"
