@@ -2,7 +2,10 @@ package Interfaces.Connectable.Dataset;
 
 /**
  * @author David Holland
- * Dieses Interface ist von jedem virtuellen Datensatz zu implementieren. So wird eine nachfolgende Funktionsumstellung gewährleistet
+ * Dieses Interface ist von jedem virtuellen Datensatz zu implementieren. So wird eine nachfolgende Funktionsumstellung gewÃ¤hrleistet
+ */
+/**
+ * Interface der Tabelle "Level" mit den zugehörigen Attributen; wird für die Datenbank (das Einlesen und Speichern der Daten) benötigt
  */
 public interface LevelDatasetConnectable extends DatasetConnectable
 {
@@ -18,7 +21,7 @@ public interface LevelDatasetConnectable extends DatasetConnectable
     void setAuthor(String author); //Autor
     String getAuthor();
 
-    void setType(int type); //Fremdschl�ssel ID aus Type-Tabelle
+    void setType(int type); //Fremdschlüssel ID aus Type-Tabelle
     int getType();
     
     void setActive(boolean isActive); //Wird die Episode gespielt?
