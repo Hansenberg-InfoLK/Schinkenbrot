@@ -5,6 +5,10 @@ import Interfaces.Connectable.Dataset.LevelDatasetConnectable;
 /**
  * Created by David on 16.03.2016.
  */
+/** 
+ * Klasse der Tabelle "Level" mit den zugehörigen Attributen; wird für die Datenbank benötigt (einlesen und auslesen der Datenbank);
+ * Die Tabelle "Level" enthält die Daten der Level des Spiels; 
+ * Die Level sind Episoden zugeordnet und sollen/können von den Usern benutzt werden;
 public class LevelDataset extends Dataset implements LevelDatasetConnectable
 {
 	int ID;
@@ -36,7 +40,7 @@ public class LevelDataset extends Dataset implements LevelDatasetConnectable
 
 	public void setType(int type){
 		this.type = type;
-	} //Fremdschl�ssel ID aus Type-Tabelle
+	} //Fremdschlüssel ID aus Type-Tabelle
 	public int getType(){
 		return this.type;
 	}
