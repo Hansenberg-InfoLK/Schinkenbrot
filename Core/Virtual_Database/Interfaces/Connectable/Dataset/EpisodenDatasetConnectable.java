@@ -2,7 +2,10 @@ package Interfaces.Connectable.Dataset;
 
 /**
  * @author David Holland
- * Dieses Interface ist von jedem virtuellen Datensatz zu implementieren. So wird eine nachfolgende Funktionsumstellung gewährleistet
+ * Dieses Interface ist von jedem virtuellen Datensatz zu implementieren. So wird eine nachfolgende Funktionsumstellung gewÃ¤hrleistet
+ */
+/**
+ * Interface der Tabelle "Episoden" mit den zugehörigen Attributen; wird für die Datenbank (das Einlesen und Speichern der Daten) benötigt
  */
 public interface EpisodenDatasetConnectable extends DatasetConnectable
 {
@@ -17,19 +20,19 @@ public interface EpisodenDatasetConnectable extends DatasetConnectable
     void setDescription(String description); //Beschreibung
     String getDescription();
 
-    void setAuthor(int author); //Fremdschl�ssel ID von der User-Tabelle
+    void setAuthor(int author); //Fremdschlüssel ID von der User-Tabelle
     int getAuthor();
 
-    void setLevels(Integer[] levels); //Fremdschl�ssel ID von der Level-Tabelle
+    void setLevels(Integer[] levels); //Fremdschlüssel ID von der Level-Tabelle
     Integer[] getLevels();
 
-    void setType(int type); //Fremdschl�ssel ID aus Type-Tabelle
+    void setType(int type); //Fremdschlüssel ID aus Type-Tabelle
     int getType();
     
     void setActive(boolean isActive); //Wird die Episode gespielt?
     boolean getActive();
     
-    void setPublic(boolean isPublic); //Ist die episode �ffentlich?
+    void setPublic(boolean isPublic); //Ist die episode öffentlich?
     boolean getPublic();
     
     void setResources(String[] resources); //Alle Ressourcen
