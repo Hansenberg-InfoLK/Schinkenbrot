@@ -5,6 +5,11 @@ import Interfaces.Connectable.Dataset.UserDatasetConnectable;
 /**
  * Created by David on 16.03.2016.
  */
+/** 
+ * Klasse der Tablle "User" mit den zugehörigen Attributen; wird für die Datenbank benötigt (einlesen und auslesen von Daten);
+ * Die Tabelle "User" enthält die Daten der Benutzer des Spiels;
+ * User können/sollen mit Episoden und Leveln interagieren;
+ */
 public class UserDataset extends Dataset implements UserDatasetConnectable
 {
 	int ID;
@@ -71,14 +76,14 @@ public class UserDataset extends Dataset implements UserDatasetConnectable
     
 	public void setLanguage(int language){
 		this.language = language;
-	} //Fremdschl�ssel ID aus Sprachentabelle
+	} //Fremdschlüssel ID aus Sprachentabelle
 	public int getLanguage(){
 		return this.language;
 	}
     
 	public void setFriends(int[] friends){
 		this.friends = friends;
-	} //Fremdschl�ssel-Array ID aus UserTabelle
+	} //Fremdschlüssel-Array ID aus UserTabelle
 	public int[] getFriends(){
 		return this.friends;
 	}
