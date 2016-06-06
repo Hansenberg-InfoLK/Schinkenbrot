@@ -2,7 +2,9 @@ package Interfaces.Connectable.Dataset;
 
 /**
  * @author David Holland
- * Dieses Interface ist von jedem virtuellen Datensatz zu implementieren. So wird eine nachfolgende Funktionsumstellung gewährleistet
+ * Dieses Interface ist von jedem virtuellen Datensatz zu implementieren. So wird eine nachfolgende Funktionsumstellung gewÃ¤hrleistet
+ */
+/** Interface der Tabelle "User" mit den zugehörigen Attributen; wird für die Datenbank (das Einlesen und Speichern der Daten) benötigt
  */
 public interface UserDatasetConnectable extends DatasetConnectable
 {
@@ -32,10 +34,10 @@ public interface UserDatasetConnectable extends DatasetConnectable
     void setLastname(String lastname); //Nachname
     String getLastname();
     
-    void setLanguage(int language); //Fremdschl�ssel ID aus Sprachentabelle
+    void setLanguage(int language); //Fremdschlüssel ID aus Sprachentabelle
     int getLanguage();
     
-    void setFriends(int[] friends); //Fremdschl�ssel-Array ID aus UserTabelle
+    void setFriends(int[] friends); //Fremdschlüssel-Array ID aus UserTabelle
     int[] getFriends();
     
     void setLastlogin(String lastlogin); //Lastlogin
