@@ -28,8 +28,11 @@
                 android:text="Beschreibung"
                 android:id="@+id/textView_episode2"
                 android:textColor="@color/abc_primary_text_material_light"
-                android:background="@drawable/abc_ab_share_pack_mtrl_alpha"
                 android:padding="10dp"/>
+
+            <View style="@style/Divider"
+                  android:layout_alignBottom="@+id/textView_episode2"
+                  android:layout_alignParentStart="true"/>
 
             <EditText
                 android:layout_width="wrap_content"
@@ -66,11 +69,14 @@
                 android:text="Aufgaben"
                 android:id="@+id/textView_episode3"
                 android:textColor="@color/abc_primary_text_material_light"
-                android:background="@drawable/abc_ab_share_pack_mtrl_alpha"
                 android:layout_alignParentStart="false"
                 android:layout_alignParentEnd="false"
                 android:layout_alignParentTop="false"
                 android:padding="10dp"/>
+
+            <View style="@style/Divider"
+                  android:layout_alignBottom="@+id/textView_episode3"
+                  android:layout_alignParentEnd="true"/>
 
             <ListView
                 android:layout_width="match_parent"
