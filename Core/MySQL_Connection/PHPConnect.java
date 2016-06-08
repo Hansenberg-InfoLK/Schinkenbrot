@@ -1,12 +1,3 @@
-package brainfuq.communicare;
-
-/**
- * CommuniCare e.V. Verwaltung v1.1-ALPHA
- * @author DustVoice
- * @projectcode Reignition
- * @copyright DustVoice (sekundär bei CommuniCare e.V.)
- */
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,7 +25,7 @@ public class PHPConnect
   
   public PHPConnect() throws MalformedURLException
   {
-    url = new URL("http://brainfuq.bplaced.net/getResult3.php");
+    url = new URL("http://brainfuq.bplaced.net/getResultInfo.php");
     con = null;
     ps = null;
     in = null;
