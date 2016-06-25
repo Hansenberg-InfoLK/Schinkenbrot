@@ -11,7 +11,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <RelativeLayout
             android:id="@+id/relative_episode1"
