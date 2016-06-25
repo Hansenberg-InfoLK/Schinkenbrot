@@ -25,7 +25,7 @@ public class PHPConnect
   
   public PHPConnect() throws MalformedURLException
   {
-    url = new URL("http://brainfuq.bplaced.net/getResultInfo.php");
+    url = new URL("http://brainfuq.net/Info-LK/Schinkenbrot/getResultInfo.php");
     con = null;
     ps = null;
     in = null;
