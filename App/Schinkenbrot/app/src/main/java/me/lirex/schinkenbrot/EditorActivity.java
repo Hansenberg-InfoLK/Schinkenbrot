@@ -1,12 +1,16 @@
 package me.lirex.schinkenbrot;
 
+import com.google.gson.*;
+
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,8 +21,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import me.lirex.schinkenbrot.database.PHPConnect;
 
 public class EditorActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
@@ -67,19 +78,67 @@ public class EditorActivity extends AppCompatActivity
         viewPager.setAdapter(adapter);
     }
 
+    private String result;
+
+    private class UserGetTask extends AsyncTask<Void, Void, Boolean>
+    {
+        String name;
+
+        public UserGetTask(){}
+
+        @Override
+        protected Boolean doInBackground(Void... params)
+        {
+            try
+            {
+                String sql = "SELECT * FROM `Episode` WHERE `author` == '1'";
+                JsonArray arr = (new PHPConnect().postParams("SELECT * FROM `User` WHERE `ID` == '1'"));
+                if (arr.size() > 0)
+                {
+                    name = ((JsonObject) arr.get(0)).get("firstname").toString().replace("\"", "");
+                }
+                Nname = name;
+                return true;
+            }
+            catch (RuntimeException e)
+            {
+                e.printStackTrace();
+                return false;
+            }
+        }
+    }
+
+    String Nname;
+
     private ListFragment createListFragment(String key)
     {
         ListFragment listFragment = new ListFragment();
         Bundle args = new Bundle();
         String[] listEntries;
 
+        UserGetTask task = new UserGetTask();
+        try
+        {
+            boolean result = task.execute((Void) null).get();
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        catch (ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+
         switch (key)
         {
             case "edAk":
-                listEntries = new String[2];
+                listEntries = new String[3];
 
                 listEntries[0] = "test1";
                 listEntries[1] = "test2";
+                listEntries[2] = Nname;
+                Log.d("bla", Nname);
 
                 break;
             case "edVe":
