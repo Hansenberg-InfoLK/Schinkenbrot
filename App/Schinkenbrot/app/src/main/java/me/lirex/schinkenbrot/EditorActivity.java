@@ -1,30 +1,27 @@
 package me.lirex.schinkenbrot;
 
-import com.google.gson.*;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -34,6 +31,7 @@ import me.lirex.schinkenbrot.database.PHPConnect;
 public class EditorActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
+    int userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -69,6 +67,8 @@ public class EditorActivity extends AppCompatActivity
         TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
         assert mTabLayout != null;
         mTabLayout.setupWithViewPager(mViewPager);
+
+        userID = 5;
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -82,7 +82,7 @@ public class EditorActivity extends AppCompatActivity
 
     private class UserGetTask extends AsyncTask<Void, Void, Boolean>
     {
-        String name;
+        ArrayList<String> name = new ArrayList<>();
 
         public UserGetTask(){}
 
@@ -91,11 +91,14 @@ public class EditorActivity extends AppCompatActivity
         {
             try
             {
-                String sql = "SELECT * FROM `Episode` WHERE `author` == '1'";
-                JsonArray arr = (new PHPConnect().postParams("SELECT * FROM `User` WHERE `ID` == '1'"));
+                String sql = "SELECT * FROM `Episode` WHERE `author` = " + userID;
+                JsonArray arr = (new PHPConnect().postParams(sql));
                 if (arr.size() > 0)
                 {
-                    name = ((JsonObject) arr.get(0)).get("firstname").toString().replace("\"", "");
+                    for (int i = 0; i < arr.size(); i++)
+                    {
+                        name.add(((JsonObject) arr.get(i)).get("name").toString().replace("\"", ""));
+                    }
                 }
                 Nname = name;
                 return true;
@@ -108,7 +111,7 @@ public class EditorActivity extends AppCompatActivity
         }
     }
 
-    String Nname;
+    ArrayList<String> Nname = new ArrayList<>();
 
     private ListFragment createListFragment(String key)
     {
@@ -137,8 +140,13 @@ public class EditorActivity extends AppCompatActivity
 
                 listEntries[0] = "test1";
                 listEntries[1] = "test2";
-                listEntries[2] = Nname;
-                Log.d("bla", Nname);
+                if (Nname != null)
+                {
+                    for (int i = 0; i < Nname.size(); i++)
+                    {
+                        listEntries[i + 2] = Nname.get(i);
+                    }
+                }
 
                 break;
             case "edVe":
