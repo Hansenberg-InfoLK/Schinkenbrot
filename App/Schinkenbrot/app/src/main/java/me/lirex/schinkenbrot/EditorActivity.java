@@ -101,7 +101,6 @@ public class EditorActivity extends AppCompatActivity
                 {
                     for (int i = 0; i < arr.size(); i++)
                     {
-                        Log.d("jj", arr.toString());
                         name.add(((JsonObject) arr.get(i)).get("name").toString().replace("\"", ""));
                     }
                 }
