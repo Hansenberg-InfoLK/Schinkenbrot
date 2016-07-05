@@ -46,7 +46,7 @@ public class EpisodeEditorActivity extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        // Datenbank Beispiel
+        // Hier kommt die Datenbank hin...
         Context context = getApplicationContext();
         CharSequence text = "Gespeichert";
         int duration = Toast.LENGTH_SHORT;

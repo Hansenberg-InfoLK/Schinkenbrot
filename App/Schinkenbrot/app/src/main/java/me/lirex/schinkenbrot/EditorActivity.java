@@ -39,6 +39,8 @@ public class EditorActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
 
+        userID = 5;
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -67,8 +69,6 @@ public class EditorActivity extends AppCompatActivity
         TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
         assert mTabLayout != null;
         mTabLayout.setupWithViewPager(mViewPager);
-
-        userID = 5;
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -79,6 +79,8 @@ public class EditorActivity extends AppCompatActivity
     }
 
     private String result;
+
+    ArrayList<String> Nname = new ArrayList<>();
 
     private class UserGetTask extends AsyncTask<Void, Void, Boolean>
     {
@@ -97,6 +99,7 @@ public class EditorActivity extends AppCompatActivity
                 {
                     for (int i = 0; i < arr.size(); i++)
                     {
+                        Log.d("jj", arr.toString());
                         name.add(((JsonObject) arr.get(i)).get("name").toString().replace("\"", ""));
                     }
                 }
@@ -111,14 +114,13 @@ public class EditorActivity extends AppCompatActivity
         }
     }
 
-    ArrayList<String> Nname = new ArrayList<>();
-
     private ListFragment createListFragment(String key)
     {
         ListFragment listFragment = new ListFragment();
         Bundle args = new Bundle();
         String[] listEntries;
 
+        // Datenbankabruf
         UserGetTask task = new UserGetTask();
         try
         {
@@ -133,18 +135,17 @@ public class EditorActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
+        // Packen des Arrays
         switch (key)
         {
             case "edAk":
-                listEntries = new String[3];
+                listEntries = new String[Nname.size()];
 
-                listEntries[0] = "test1";
-                listEntries[1] = "test2";
                 if (Nname != null)
                 {
                     for (int i = 0; i < Nname.size(); i++)
                     {
-                        listEntries[i + 2] = Nname.get(i);
+                        listEntries[i] = Nname.get(i);
                     }
                 }
 
@@ -165,8 +166,10 @@ public class EditorActivity extends AppCompatActivity
                 break;
         }
 
+        // Bundle
         args.putStringArray("listEntries", listEntries);
 
+        // Add to ListFragment
         listFragment.setArguments(args);
 
         return listFragment;
