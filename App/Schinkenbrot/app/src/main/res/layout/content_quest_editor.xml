@@ -6,8 +6,7 @@
                                             android:layout_height="match_parent"
                                             app:layout_behavior="@string/appbar_scrolling_view_behavior"
                                             tools:context="me.lirex.schinkenbrot.QuestEditorActivity"
-                                            tools:showIn="@layout/activity_quest_editor"
-    >
+                                            tools:showIn="@layout/activity_quest_editor">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,12 +16,54 @@
         android:focusableInTouchMode="true">
 
         <RelativeLayout
+            android:id="@+id/relative_quest3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/abc_popup_background_mtrl_mult"
+            android:nestedScrollingEnabled="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Name"
+                android:id="@+id/textView_quest4"
+                android:textColor="@color/abc_primary_text_material_light"
+                android:padding="10dp"/>
+
+            <View style="@style/Divider"
+                android:layout_alignBottom="@+id/textView_quest4"
+                android:layout_alignParentStart="true"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_quest2"
+                android:layout_below="@+id/textView_quest4"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:text="Hier Namen eingeben..."
+                android:padding="10dp"/>
+
+
+        </RelativeLayout>
+
+        <Space
+            android:id="@+id/space_quest2"
+            android:layout_width="match_parent"
+            android:layout_height="10px"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentEnd="false"
+            android:layout_below="@+id/relative_quest3"/>
+
+
+        <RelativeLayout
             android:id="@+id/relative_quest1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/abc_popup_background_mtrl_mult"
             android:nestedScrollingEnabled="true"
-            android:layout_marginTop="30dp">
+            android:layout_below="@id/space_quest2">
 
             <TextView
                 android:layout_width="match_parent"
