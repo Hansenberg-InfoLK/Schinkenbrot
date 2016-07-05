@@ -1,6 +1,7 @@
 package me.lirex.schinkenbrot;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -13,12 +14,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import me.lirex.schinkenbrot.database.PHPConnect;
 
 public class GameActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
@@ -67,22 +75,75 @@ public class GameActivity extends AppCompatActivity
         viewPager.setAdapter(adapter);
     }
 
+    private String result;
+
+    ArrayList<String> Mname = new ArrayList<>();
+
+    private class UserGetTask extends AsyncTask<Void, Void, Boolean>
+    {
+        ArrayList<String> name = new ArrayList<>();
+
+        public UserGetTask(){}
+
+        @Override
+        protected Boolean doInBackground(Void... params)
+        {
+            try
+            {
+                String sql = "SELECT * FROM `Episode`";
+                JsonArray arr = (new PHPConnect().postParams(sql));
+                if (arr.size() > 0)
+                {
+                    for (int i = 0; i < arr.size(); i++)
+                    {
+                        name.add(((JsonObject) arr.get(i)).get("name").toString().replace("\"", ""));
+                    }
+                }
+                Mname = name;
+                Log.d("test", Mname.toString());
+                return true;
+            }
+            catch (RuntimeException e)
+            {
+                e.printStackTrace();
+                return true;
+            }
+        }
+    }
+
     private ListFragment createListFragment(String key)
     {
         ListFragment listFragment = new ListFragment();
         Bundle args = new Bundle();
         String[] listEntries;
 
+        // Datenbankabruf
+        UserGetTask task = new UserGetTask();
+        try
+        {
+            boolean result = task.execute((Void) null).get();
+        }
+        catch (InterruptedException | ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+
+        // Packen des Arrays
         switch (key)
         {
             case "gaAk":
-                listEntries = new String[2];
+                listEntries = new String[Mname.size()];
 
-                listEntries[0] = "test1";
-                listEntries[1] = "test2";
+                if (Mname != null)
+                {
+                    for (int i = 0; i < Mname.size(); i++)
+                    {
+                        listEntries[i] = Mname.get(i);
+                    }
+                }
 
                 break;
-            case "gaAb":
+            case "gaVe":
                 listEntries = new String[3];
 
                 listEntries[0] = "test3";
@@ -98,8 +159,10 @@ public class GameActivity extends AppCompatActivity
                 break;
         }
 
+        // Bundle
         args.putStringArray("listEntries", listEntries);
 
+        // Add to ListFragment
         listFragment.setArguments(args);
 
         return listFragment;
