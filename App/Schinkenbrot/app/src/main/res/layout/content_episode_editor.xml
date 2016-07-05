@@ -16,12 +16,54 @@
         android:focusableInTouchMode="true">
 
         <RelativeLayout
-            android:id="@+id/relative_episode1"
+            android:id="@+id/relative_episode3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/abc_popup_background_mtrl_mult"
             android:nestedScrollingEnabled="true"
             android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Name"
+                android:id="@+id/textView_episode4"
+                android:textColor="@color/abc_primary_text_material_light"
+                android:padding="10dp"/>
+
+            <View style="@style/Divider"
+                android:layout_alignBottom="@+id/textView_episode4"
+                android:layout_alignParentStart="true"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_episode2"
+                android:layout_below="@+id/textView_episode4"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:text="Aloha"
+                android:padding="10dp"/>
+
+        </RelativeLayout>
+
+        <Space
+            android:id="@+id/space_episode2"
+            android:layout_width="match_parent"
+            android:layout_height="10px"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentEnd="false"
+            android:layout_below="@+id/relative_episode3"/>
+
+        <RelativeLayout
+            android:id="@+id/relative_episode1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/abc_popup_background_mtrl_mult"
+            android:nestedScrollingEnabled="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/space_episode2">
 
             <TextView
                 android:layout_width="match_parent"
