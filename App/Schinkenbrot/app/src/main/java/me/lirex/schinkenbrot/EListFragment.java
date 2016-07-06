@@ -1,6 +1,7 @@
 package me.lirex.schinkenbrot;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -13,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class EListFragment extends ListFragment
 {
     @Override
@@ -21,37 +24,23 @@ public class EListFragment extends ListFragment
         super.onCreate(savedInstanceState);
     }
 
+    ArrayList<Integer> ids;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
         Bundle args = getArguments();
         String[] content = args.getStringArray("listEntries");
-        int[] ids = args.getIntArray("ids");
+        ids = args.getIntegerArrayList("ids");
 
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         ListView lv = (ListView) view.findViewById(android.R.id.list);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
-            lv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, content));
+            lv.setAdapter(new ArrayAdapter<String>(getContext(), R.layout.item_list, content));
         }
-
-        AdapterView.OnItemClickListener ls = new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                Log.d("Tag", String.valueOf(position));
-
-                Context context = getContext();
-                CharSequence text = String.valueOf(position);
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-            }
-        };
-        lv.setOnItemClickListener(ls);
 
         return view;
 
@@ -59,5 +48,15 @@ public class EListFragment extends ListFragment
          * Inflate the layout for this fragment
          * return inflater.inflate(R.layout.fragment_list_list, container, false);
          */
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id)
+    {
+        super.onListItemClick(l, v, position, id);
+
+        Intent intent = new Intent(getContext(), EpisodeEditorActivity.class);
+        intent.putExtra("id", ids.get(position));
+        startActivity(intent);
     }
 }

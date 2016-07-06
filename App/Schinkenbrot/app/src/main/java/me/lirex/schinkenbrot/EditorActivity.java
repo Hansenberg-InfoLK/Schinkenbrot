@@ -1,6 +1,5 @@
 package me.lirex.schinkenbrot;
 
-import android.app.ListFragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.ListFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -51,9 +51,6 @@ public class EditorActivity extends AppCompatActivity
          * Set up the ViewPager with the sections adapter.
          */
 
-        ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
-        setupViewPager(mViewPager);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -64,6 +61,16 @@ public class EditorActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        // Load content
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
+        setupViewPager(mViewPager);
 
         /**
          *The {@link ViewPager} that will host the section contents.
@@ -81,11 +88,14 @@ public class EditorActivity extends AppCompatActivity
     }
 
     private String result;
-    ArrayList<String> Nname = new ArrayList<>();
+
+    ArrayList<String> nName = new ArrayList<>();
+    ArrayList<Integer> nID = new ArrayList<>();
 
     private class UserGetTask extends AsyncTask<Void, Void, Boolean>
     {
         ArrayList<String> name = new ArrayList<>();
+        ArrayList<Integer> ids = new ArrayList<>();
 
         public UserGetTask(){}
 
@@ -102,8 +112,13 @@ public class EditorActivity extends AppCompatActivity
                     {
                         name.add(((JsonObject) arr.get(i)).get("name").toString().replace("\"", ""));
                     }
+                    nName = name;
+                    for (int c = 0; c < arr.size(); c++)
+                    {
+                        ids.add(((JsonObject) arr.get(c)).get("ID").getAsInt());
+                    }
+                    nID = ids;
                 }
-                Nname = name;
                 return true;
             }
             catch (RuntimeException e)
@@ -117,8 +132,11 @@ public class EditorActivity extends AppCompatActivity
     private EListFragment createListFragment(String key)
     {
         EListFragment eListFragment = new EListFragment();
+
         Bundle args = new Bundle();
+
         String[] listEntries;
+        ArrayList<Integer> ids = new ArrayList<>();
 
         // Datenbankabruf
         UserGetTask task = new UserGetTask();
@@ -135,23 +153,22 @@ public class EditorActivity extends AppCompatActivity
         switch (key)
         {
             case "edAk":
-                listEntries = new String[Nname.size()];
+                listEntries = new String[nName.size()];
 
-                if (Nname != null)
+                if (nName != null)
                 {
-                    for (int i = 0; i < Nname.size(); i++)
+                    for (int i = 0; i < nName.size(); i++)
                     {
-                        listEntries[i] = Nname.get(i);
+                        listEntries[i] = nName.get(i);
+                        ids.add(nID.get(i));
                     }
                 }
 
                 break;
             case "edVe":
-                listEntries = new String[3];
+                listEntries = new String[1];
 
-                listEntries[0] = "test3";
-                listEntries[1] = "test4";
-                listEntries[2] = "test5";
+                listEntries[0] = "Alle Episoden sind zu Testzwecken öffentlich.";
 
                 break;
             default:
@@ -164,11 +181,17 @@ public class EditorActivity extends AppCompatActivity
 
         // Bundle
         args.putStringArray("listEntries", listEntries);
+        args.putIntegerArrayList("ids", ids);
 
         // Add to EListFragment
         eListFragment.setArguments(args);
 
         return eListFragment;
+    }
+
+    public void goToEpisodeEditorActivity (View view){
+        Intent intent = new Intent(this, EpisodeEditorActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -267,7 +290,7 @@ public class EditorActivity extends AppCompatActivity
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public void addFragment(Fragment fragment, String title) {
+        public void addFragment(ListFragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
@@ -286,10 +309,5 @@ public class EditorActivity extends AppCompatActivity
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
-    }
-
-    public void goToEpisodeEditorActivity (View view){
-        Intent intent = new Intent(this, EpisodeEditorActivity.class);
-        startActivity(intent);
     }
 }
