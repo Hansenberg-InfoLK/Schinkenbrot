@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,14 +62,8 @@ public class EditorActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
-    }
 
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-
-        // Load content
+        // Load data
         ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(mViewPager);
 
@@ -78,6 +73,17 @@ public class EditorActivity extends AppCompatActivity
         TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
         assert mTabLayout != null;
         mTabLayout.setupWithViewPager(mViewPager);
+    }
+
+    @Override
+    protected void onRestart()
+    {
+        super.onRestart();
+
+        // Restart
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -119,6 +125,27 @@ public class EditorActivity extends AppCompatActivity
                     }
                     nID = ids;
                 }
+                return true;
+            }
+            catch (RuntimeException e)
+            {
+                e.printStackTrace();
+                return false;
+            }
+        }
+    }
+
+    private class SetTask extends AsyncTask<Void, Void, Boolean>
+    {
+        public SetTask(){}
+
+        @Override
+        protected Boolean doInBackground(Void... params)
+        {
+            try
+            {
+                String sql = "INSERT INTO `Episode` (name, description, author, public, active, episodetype, picture) VALUES ('Neue Episode', 'Beschreibung', " + userID + ", 1, 1, 1, 1);";
+                new PHPConnect().postParams(sql);
                 return true;
             }
             catch (RuntimeException e)
@@ -190,8 +217,18 @@ public class EditorActivity extends AppCompatActivity
     }
 
     public void goToEpisodeEditorActivity (View view){
-        Intent intent = new Intent(this, EpisodeEditorActivity.class);
-        startActivity(intent);
+        // Datenbankaktualisierung...
+        SetTask task = new SetTask();
+        try
+        {
+            boolean result = task.execute((Void) null).get();
+        }
+        catch (InterruptedException | ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+
+        onRestart();
     }
 
     @Override

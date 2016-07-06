@@ -12,7 +12,9 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,9 @@ import me.lirex.schinkenbrot.database.PHPConnect;
 public class EpisodeEditorActivity extends AppCompatActivity {
 
     int id;
+    int userID;
+
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,19 +78,27 @@ public class EpisodeEditorActivity extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
 
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
+        userID = 5;
 
+        // Load data
         Bundle b = getIntent().getExtras();
         if(b != null)
         {
             id = b.getInt("id");
             load();
         }
+    }
+
+    @Override
+    protected void onRestart()
+    {
+        super.onRestart();
+
+        // Restart
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
     String name, desc;
@@ -105,12 +118,28 @@ public class EpisodeEditorActivity extends AppCompatActivity {
 
         final EditText editText1 = (EditText) findViewById(R.id.editText_episode1);
         final EditText editText2 = (EditText) findViewById(R.id.editText_episode2);
+        final ListView listView = (ListView) findViewById(R.id.listViewBla);
 
         // Get from Database
         assert editText1 != null;
         editText1.setText(desc);
         assert editText2 != null;
         editText2.setText(name);
+
+        // Datenbankabruf
+        QGetTask qTask = new QGetTask();
+        try
+        {
+            boolean result = qTask.execute((Void) null).get();
+        }
+        catch (InterruptedException | ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+
+        adapter = new ArrayAdapter<String>(this, R.layout.item_list, nName);
+        Log.d("TAG", nName.toString());
+        listView.setAdapter(adapter);
     }
 
     public void onEpisodeEditorButtonPressed(View view) // FAB
@@ -181,6 +210,46 @@ public class EpisodeEditorActivity extends AppCompatActivity {
                     JsonObject data = ((JsonObject) arr.get(0));
                     name = data.get("name").toString().replace("\"", "");
                     desc = data.get("description").toString().replace("\"", "");
+                }
+                return true;
+            }
+            catch (RuntimeException e)
+            {
+                e.printStackTrace();
+                return false;
+            }
+        }
+    }
+
+    ArrayList<String> nName = new ArrayList<>();
+    ArrayList<Integer> nID = new ArrayList<>();
+
+    private class QGetTask extends AsyncTask<Void, Void, Boolean>
+    {
+        ArrayList<String> name = new ArrayList<>();
+        ArrayList<Integer> ids = new ArrayList<>();
+
+        public QGetTask(){}
+
+        @Override
+        protected Boolean doInBackground(Void... params)
+        {
+            try
+            {
+                String sql = "SELECT * FROM `Quests` WHERE `author` = " + userID;
+                JsonArray arr = (new PHPConnect().postParams(sql));
+                if (arr.size() > 0)
+                {
+                    for (int i = 0; i < arr.size(); i++)
+                    {
+                        name.add(((JsonObject) arr.get(i)).get("name").toString().replace("\"", ""));
+                    }
+                    nName = name;
+                    for (int c = 0; c < arr.size(); c++)
+                    {
+                        ids.add(((JsonObject) arr.get(c)).get("ID").getAsInt());
+                    }
+                    nID = ids;
                 }
                 return true;
             }

@@ -17,6 +17,7 @@
         android:headerDividersEnabled="true"
         android:focusable="false"
         android:clickable="false"
-        android:focusableInTouchMode="false"/>
+        android:focusableInTouchMode="false"
+        android:scrollbars="vertical"/>
 
 </LinearLayout>
