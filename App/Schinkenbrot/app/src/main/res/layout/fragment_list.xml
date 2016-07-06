@@ -3,13 +3,20 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
-              android:baselineAligned="false">
+              android:baselineAligned="false"
+              android:focusable="false"
+              android:clickable="false"
+              android:descendantFocusability="blocksDescendants"
+              android:focusableInTouchMode="false">
 
     <ListView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/epaklist"
+        android:id="@android:id/list"
         android:layout_weight="1"
-        android:headerDividersEnabled="true"/>
+        android:headerDividersEnabled="true"
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"/>
 
 </LinearLayout>

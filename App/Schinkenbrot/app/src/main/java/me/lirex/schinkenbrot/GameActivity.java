@@ -111,9 +111,9 @@ public class GameActivity extends AppCompatActivity
         }
     }
 
-    private ListFragment createListFragment(String key)
+    private EListFragment createListFragment(String key)
     {
-        ListFragment listFragment = new ListFragment();
+        EListFragment eListFragment = new EListFragment();
         Bundle args = new Bundle();
         String[] listEntries;
 
@@ -162,10 +162,10 @@ public class GameActivity extends AppCompatActivity
         // Bundle
         args.putStringArray("listEntries", listEntries);
 
-        // Add to ListFragment
-        listFragment.setArguments(args);
+        // Add to EListFragment
+        eListFragment.setArguments(args);
 
-        return listFragment;
+        return eListFragment;
     }
 
     @Override

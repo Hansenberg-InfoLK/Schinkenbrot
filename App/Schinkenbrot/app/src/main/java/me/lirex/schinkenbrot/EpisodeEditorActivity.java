@@ -30,6 +30,14 @@ public class EpisodeEditorActivity extends AppCompatActivity {
         final TextView textView = (TextView) findViewById(R.id.textView_episode2);
         final EditText editText = (EditText) findViewById(R.id.editText_episode1);
 
+        Bundle b = getIntent().getExtras();
+        if(b != null)
+        {
+            int id = b.getInt("id");
+            // Get from Database
+        }
+
+
         assert editText != null;
         editText.addTextChangedListener(new TextWatcher() {
 

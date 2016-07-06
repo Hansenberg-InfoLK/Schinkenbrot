@@ -1,5 +1,6 @@
 package me.lirex.schinkenbrot;
 
+import android.app.ListFragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,7 +15,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -81,7 +81,6 @@ public class EditorActivity extends AppCompatActivity
     }
 
     private String result;
-
     ArrayList<String> Nname = new ArrayList<>();
 
     private class UserGetTask extends AsyncTask<Void, Void, Boolean>
@@ -115,9 +114,9 @@ public class EditorActivity extends AppCompatActivity
         }
     }
 
-    private ListFragment createListFragment(String key)
+    private EListFragment createListFragment(String key)
     {
-        ListFragment listFragment = new ListFragment();
+        EListFragment eListFragment = new EListFragment();
         Bundle args = new Bundle();
         String[] listEntries;
 
@@ -166,10 +165,10 @@ public class EditorActivity extends AppCompatActivity
         // Bundle
         args.putStringArray("listEntries", listEntries);
 
-        // Add to ListFragment
-        listFragment.setArguments(args);
+        // Add to EListFragment
+        eListFragment.setArguments(args);
 
-        return listFragment;
+        return eListFragment;
     }
 
     @Override
